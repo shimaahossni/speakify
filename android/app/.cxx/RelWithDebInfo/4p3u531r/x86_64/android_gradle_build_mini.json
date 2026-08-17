@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "C:\\dev\\flutter_windows_3.16.8-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\shima\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\shima\\OneDrive\\Desktop\\flutter\\eraSoft\\Flutter advanced\\voice_to_text\\android\\app\\.cxx\\RelWithDebInfo\\4p3u531r\\x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\shima\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\shima\\OneDrive\\Desktop\\flutter\\eraSoft\\Flutter advanced\\voice_to_text\\android\\app\\.cxx\\RelWithDebInfo\\4p3u531r\\x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

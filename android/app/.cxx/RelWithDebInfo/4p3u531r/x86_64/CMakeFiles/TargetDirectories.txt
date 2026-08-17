@@ -1,0 +1,2 @@
+C:/Users/shima/OneDrive/Desktop/flutter/eraSoft/Flutter advanced/voice_to_text/android/app/.cxx/RelWithDebInfo/4p3u531r/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/shima/OneDrive/Desktop/flutter/eraSoft/Flutter advanced/voice_to_text/android/app/.cxx/RelWithDebInfo/4p3u531r/x86_64/CMakeFiles/rebuild_cache.dir
