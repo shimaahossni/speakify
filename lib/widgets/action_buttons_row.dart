@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:voice_to_text/core/constants/app_strings.dart';
 import 'package:voice_to_text/core/theme/app_theme.dart';
@@ -103,7 +103,7 @@ class _OutlineActionButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppTheme.cardColor,
           borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
-          border: Border.all(color: color.withValues(alpha: 0.4), width: 1.5),
+          border: Border.all(color: color.withOpacity(0.4), width: 1.5),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -148,7 +148,7 @@ class _GradientButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
           boxShadow: [
             BoxShadow(
-              color: AppTheme.primary.withValues(alpha: 0.4),
+              color: AppTheme.primary.withOpacity(0.4),
               blurRadius: 12,
               offset: const Offset(0, 4),
             ),

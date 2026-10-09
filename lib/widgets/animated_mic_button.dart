@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:voice_to_text/core/theme/app_theme.dart';
 
 /// Floating action button with a pulsing animation while listening.
@@ -78,8 +78,8 @@ class _AnimatedMicButtonState extends State<AnimatedMicButton>
             boxShadow: [
               BoxShadow(
                 color: widget.isListening
-                    ? AppTheme.listeningColor.withValues(alpha: 0.5)
-                    : AppTheme.primary.withValues(alpha: 0.4),
+                    ? AppTheme.listeningColor.withOpacity(0.5)
+                    : AppTheme.primary.withOpacity(0.4),
                 blurRadius: 20,
                 spreadRadius: 4,
               ),
