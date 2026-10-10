@@ -1,25 +1,24 @@
 #!/bin/sh
-
-# The default execution directory of this script is the ci_scripts directory.
-# Change working directory to the root of your cloned repo.
 cd $CI_PRIMARY_REPOSITORY_PATH 
 
-# Install Flutter using git.
 echo "Downloading Flutter..."
 git clone https://github.com/flutter/flutter.git --depth 1 -b 3.22.3 $HOME/flutter
 export PATH="$PATH:$HOME/flutter/bin"
 
-# Pre-cache iOS artifacts
 flutter precache --ios
-
-# Install Flutter dependencies.
 flutter pub get
 
-# Install CocoaPods using Homebrew.
-HOMEBREW_NO_AUTO_UPDATE=1 brew install cocoapods
+# Generate Podfile and Xcode project files for plugins
+flutter build ios --config-only
 
-# Install CocoaPods dependencies.
+# Update deployment target in Podfile if it was generated with an older version
 cd ios
+if [ -f "Podfile" ]; then
+    sed -i '' "s/platform :ios, '12.0'/platform :ios, '15.0'/g" Podfile
+    sed -i '' "s/platform :ios, '11.0'/platform :ios, '15.0'/g" Podfile
+fi
+
+HOMEBREW_NO_AUTO_UPDATE=1 brew install cocoapods
 pod install
 
 exit 0
