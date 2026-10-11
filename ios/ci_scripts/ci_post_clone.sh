@@ -10,25 +10,18 @@ export PATH="$PATH:$HOME/flutter/bin"
 flutter precache --ios
 flutter pub get
 
-# Generate the Podfile and other iOS config files
+# Generate the Podfile (this creates one post_install block already)
 flutter build ios --config-only
 
-# Inject a post_install hook into the Podfile that forces all pods to iOS 15.0
-cat >> ios/Podfile << 'PODFILE_HOOK'
+# Patch the existing post_install block to also force iOS 15.0 on all pods
+# We replace the flutter_additional_ios_build_settings(target) line and add the
+# deployment target fix right after it, inside the same loop
+sed -i '' 's/flutter_additional_ios_build_settings(target)/flutter_additional_ios_build_settings(target)\n      target.build_configurations.each do |config|\n        config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "15.0"\n      end/' ios/Podfile
 
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    flutter_additional_ios_build_settings(target)
-    target.build_configurations.each do |config|
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
-    end
-  end
-end
-PODFILE_HOOK
+echo "==> Podfile after patch:"
+cat ios/Podfile
 
-echo "==> Installing CocoaPods..."
-HOMEBREW_NO_AUTO_UPDATE=1 brew install cocoapods
-
+echo "==> Running pod install..."
 cd ios
 pod install
 
