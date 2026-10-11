@@ -1,7 +1,7 @@
 name: voice_to_text
 description: "A new Flutter project."
 publish_to: 'none'
-version: 1.1.0+6
+version: 1.1.0+7
 
 environment:
   sdk: ^3.4.0
@@ -18,6 +18,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.jpg"
+  remove_alpha_ios: true
 
 flutter:
   uses-material-design: true
